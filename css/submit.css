@@ -1,0 +1,99 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+html,body{
+    height:100%;
+}
+#main label{
+    width:5em;
+    display:inline-block
+}
+#main input[type="text"]{
+    display:inline-block;
+    width:60%
+}
+#main select{
+    display:inline-block;
+    width:60%
+}
+#main{
+    position:relative;
+    height:80%;
+    margin-top:30px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:50px;
+    border:1px solid #7B7B7B;
+    line-height:4em;
+    font-size:1.2em;
+}
+#main>label,#main>div{
+    margin-left:10%
+}
+div#analyze_mode{
+    border:1px solid #7B7B7B;
+    width:80%;
+    text-align:center;
+    position:relative;
+    margin-top:1em;
+}
+label#mode_label{
+    line-height:1em;
+    position:absolute;
+    top:-0.5em;
+    left:1em;
+    background-color:white;
+}
+div#option li{
+    padding:0.5em 1em;
+    color:#36648B;
+    cursor:pointer;
+    display:inline-block;
+    border:2px solid #7D9EC0;
+    background-color:white;
+    border-bottom:none;
+    background-color:#EEEEEE;
+    border-top-right-radius:0.5em;
+}
+div#option li:hover{
+    background-color:white;
+}
+
+div#task_list{
+    padding:20px;
+    background-color:white;
+}
+#example input{
+    width:100%;
+    background-color:white;
+    border:1px solid #CCCCCC;
+    display:inline-block;
+    height:2em
+}
+#example td{
+    text-align:center
+}
+#example span{
+    text-align:left
+}
+button{
+	display:inline-block;
+	width:20%;
+	height:35px;
+}
+button{
+	font-size:14px;
+	padding:0;
+    border:1px solid #AAAAAA;
+    background:linear-gradient(white, #EEEEEE);
+    border-radius:3px;
+    cursor:pointer
+}
+button:active{
+    background:linear-gradient(#EEEEEE,white);
+}

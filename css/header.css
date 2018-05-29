@@ -1,0 +1,26 @@
+#head{
+    height:50px;
+    background-color:#CD2626;
+    /*
+    animation:login2 0.5s ease-out;
+    -webkit-animation: login2 0.5s ease-out;
+	-moz-animation: login2 0.5s ease-out;
+	-ms-animation: login2 0.5s ease-out;
+	-o-animation: login2 0.5s ease-out;
+	animation: login2 0.5s ease-out;*/
+}
+#head h1{
+    display:inline-block;
+    padding:10px;
+    font-size:1.5em;
+    color:black;
+    vertical-align:top
+}
+
+#head>img{
+	display: block;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index:10;
+}

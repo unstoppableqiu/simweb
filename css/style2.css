@@ -1,0 +1,52 @@
+.head{
+    height:60px;
+    background-color:#393D49;
+    /*
+    animation:login2 0.5s ease-out;
+    -webkit-animation: login2 0.5s ease-out;
+	-moz-animation: login2 0.5s ease-out;
+	-ms-animation: login2 0.5s ease-out;
+	-o-animation: login2 0.5s ease-out;
+	animation: login2 0.5s ease-out;*/
+}
+.head h1{
+    display:inline-block;
+    padding:10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #f5f5f5;
+    vertical-align:top
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.main {
+    flex: 1;
+}
+footer {
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.copyright {
+    margin: 10px auto;
+    max-width: 1170px;
+    color: #888;
+}
+
+.quit {
+    position: relative;
+    float: right;
+    top: 20px;
+    right: 5px;
+    font-size: 18px;
+    font-weight: 200;
+    color: #f5f5f5;
+    vertical-align:bottom;
+    cursor: pointer;
+}

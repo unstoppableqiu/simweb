@@ -1,0 +1,63 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+#main{
+    margin: 30px 20px 50px 20px;
+}
+div#option li{
+    position:relative;
+    top:1px;
+    padding:0.5em 1em;
+    color:#36648B;
+    cursor:pointer;
+    display:inline-block;
+    border:1px solid #7B7B7B;
+    background-color:white;
+    border-top-right-radius:0.5em;
+}
+div#option li:hover{
+    border-bottom:1px solid white;
+}
+div#task_list{
+    padding:20px;
+    background-color:white;
+    border:1px solid #7B7B7B;
+}
+#example input{
+    width:100%;
+    background-color:white;
+    border:1px solid #CCCCCC;
+    display:inline-block;
+    height:2em
+}
+#example td,#example2 td,#example3 td{
+    text-align:center
+}
+#example span,#example2 span,#example3 span{
+    text-align:left
+}
+button{
+	width:150px;
+	height:35px;
+    margin-bottom:20px;
+}
+button{
+    margin-left:10px;
+    float:right;
+	font-size:14px;
+	padding:0;
+    border:1px solid #AAAAAA;
+    background:linear-gradient(white, #EEEEEE);
+    border-radius:3px;
+    cursor:pointer
+}
+button:active{
+    background:linear-gradient(#EEEEEE,white);
+}
+/*new
+*
+********************************************/
