@@ -4,3 +4,4 @@ WEB-INF/dispatcher-servlet.xml
 WEB-INF/web.xml
 WEB-INF/lib
 META-INF
+.idea
