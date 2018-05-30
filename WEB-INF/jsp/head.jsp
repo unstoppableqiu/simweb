@@ -13,3 +13,8 @@
         退出登录
     </div>
 </div>
+<link rel="stylesheet" type="text/css" href="../../js/layui/css/layui.css" />
+<script src="../../js/layui/layui.all.js" type="text/javascript"></script>
+<script src="../../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="../../js/datatables.min.js" type="text/javascript" ></script>
+<script src="../../js/date_format.js" type="text/javascript"></script>
