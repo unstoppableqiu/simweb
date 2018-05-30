@@ -1,12 +1,12 @@
 var tab = "past";
 var selected = null;
-var tasknowTable = $("#tasknow_table");
+var taskpastTable = $("#taskpast_table");
 var mask = $("#mask");
 var resourceTable = $("#resource_table");
 $("#tab_buttons").on("click", "li", (function () {
     tab = $(this).attr("id");
-    tasknowTable.DataTable().clear();
-    tasknowTable.DataTable().ajax.url("../task/"+tab).load()
+    taskpastTable.DataTable().clear();
+    taskpastTable.DataTable().ajax.url("../task/"+tab).load()
 }));
 $("tbody" ).on("click", ".hash_string", function (e) {
     var hash_string = $(this).children("img").attr("alt")
@@ -25,24 +25,25 @@ resourceTable.on("click", "tr", function () {
     $(this).toggleClass("selected");
 
 });
-tasknowTable.on("click", "tr", function () {
+taskpastTable.on("click", "tr", function () {
     if (!$(this).hasClass("selected"))
         $(".selected").removeClass("selected");
     $(this).toggleClass("selected");
-    selected = tasknowTable.DataTable().row($(this)).data();
+    selected = taskpastTable.DataTable().row($(this)).data();
 });
 
-$("#delete_task_btn2").click(function() {
-    $("#delete2").slideDown(300);
+$("#delete_task_btn1").click(function() {
+    $("#delete").slideDown(300);
     mask.fadeIn(300);
-    $("#tasknowId").val(selected["taskId"]);
+    $("#taskpastId").val(selected["taskId"]);
+    console.log('click');
 });
-$("#confirm_delete_btn2").click(function() {
+$("#confirm_delete_btn1").click(function() {
     $.ajax({
         "type": "POST",
         "url": "../task/remove",
         "data": {
-            "taskId": $("#tasknowId").val()
+            "taskId": $("#taskpastId").val()
         },
         "success": function () {
             alert("删除成功!");
@@ -55,7 +56,7 @@ $("#confirm_delete_btn2").click(function() {
     })
 });
 $(".close").click(function () {
-    $("#delete2").slideUp(300);
+    $("#delete").slideUp(300);
     mask.fadeOut(300);
 });
 resourceTable.DataTable({
@@ -115,7 +116,7 @@ resourceTable.DataTable({
             }
         }
     ]});
-tasknowTable.DataTable({
+taskpastTable.DataTable({
     //"aLengthMenu":[10],  //用户可自选每页展示数量 5条或10条
     "searching":false,//禁用搜索（搜索框）
     //"lengthChange":true,

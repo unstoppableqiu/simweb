@@ -1,12 +1,12 @@
 var tab = "past";
 var selected = null;
-var tasknowTable = $("#tasknow_table");
+var taskqueueTable = $("#taskqueue_table");
 var mask = $("#mask");
 var resourceTable = $("#resource_table");
 $("#tab_buttons").on("click", "li", (function () {
     tab = $(this).attr("id");
-    tasknowTable.DataTable().clear();
-    tasknowTable.DataTable().ajax.url("../task/"+tab).load()
+    taskqueueTable.DataTable().clear();
+    taskqueueTable.DataTable().ajax.url("../task/"+tab).load()
 }));
 $("tbody" ).on("click", ".hash_string", function (e) {
     var hash_string = $(this).children("img").attr("alt")
@@ -25,24 +25,96 @@ resourceTable.on("click", "tr", function () {
     $(this).toggleClass("selected");
 
 });
-tasknowTable.on("click", "tr", function () {
+taskqueueTable.on("click", "tr", function () {
     if (!$(this).hasClass("selected"))
         $(".selected").removeClass("selected");
     $(this).toggleClass("selected");
-    selected = tasknowTable.DataTable().row($(this)).data();
+    selected = taskqueueTable.DataTable().row($(this)).data();
 });
-
-$("#delete_task_btn2").click(function() {
-    $("#delete2").slideDown(300);
+// 分配任务
+$("#assign_btn").click(function () {
+    var selected = $(".selected");
+    if (selected) {
+        $("#select_resource").slideDown(300);
+        mask.fadeIn(300);
+        var data = taskqueueTable.DataTable().row(selected[0]).data();
+        console.log(data);
+        (function () {
+            var tableData = resourceTable.DataTable().data();
+            var rows = tableData.rows()[0].length;
+            function LoopAjax(i) {
+                if (i >= 0) {
+                    $.ajax({
+                        "type": "POST",
+                        "url": "../task/cspeed",
+                        "data": {"hashType": data.hashType,
+                            "crackType": data.crackType,
+                            "cname": tableData[i].cname
+                        },
+                        "success": function (rdata) {
+                            var finish_time = "Unknown";
+                            var speed = rdata["speed"];
+                            if (speed) {
+                                finish_time = new Date().getTime() + data.numTotalHash / speed
+                                finish_time = new Date(finish_time).Format("yyyy-MM-dd hh:mm:ss");
+                            }
+                            var td = $(resourceTable.children("tbody")[0]).children("tr")[i].children[8];
+                            $(td).text(finish_time)
+                        }
+                    });
+                    LoopAjax(i-1);
+                }
+            }
+            LoopAjax(rows-1)
+        })();
+        resourceTable.on("click", "tr", function () {
+            var node_avail = $($(".selected")[0].children[7]).text();
+            var cname = $($(".selected")[0].children[0]).text();
+            var nodes_suggest = node_avail == 0? 0: Math.floor(Math.log(node_avail) / Math.log(2));
+            $("#nodes_to_use").val(nodes_suggest);
+            $("#resource_selected").val(cname);
+            $("#task_selected").val(data["taskId"]);
+        });
+        $("#assign_confirm").click(function () {
+            if ($("#nodes_to_use").val() <= 0)
+                return;
+            $.ajax({
+                "type": "POST",
+                "url": "../task/assign",
+                "dataType": "text",
+                "data": {
+                    "taskId": $("#task_selected").val(),
+                    "nodesToUse": $("#nodes_to_use").val(),
+                    "cname": $("#resource_selected").val(),
+                    "assignTime": new Date().getTime()
+                },
+                "success": function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("提交成功！");
+                    window.location.reload();
+                },
+                "error": function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("提交失败!");
+                    window.location.reload();
+                }
+            });
+        });
+    }
+});
+$("#close").click(function () {
+    $("#select_resource").slideUp(300);
+    mask.fadeOut(300);
+});
+$("#delete_task_btn3").click(function() {
+    $("#delete3").slideDown(300);
     mask.fadeIn(300);
-    $("#tasknowId").val(selected["taskId"]);
+    $("#taskqueueId").val(selected["taskId"]);
 });
-$("#confirm_delete_btn2").click(function() {
+$("#confirm_delete_btn3").click(function() {
     $.ajax({
         "type": "POST",
         "url": "../task/remove",
         "data": {
-            "taskId": $("#tasknowId").val()
+            "taskId": $("#taskqueueId").val()
         },
         "success": function () {
             alert("删除成功!");
@@ -55,7 +127,7 @@ $("#confirm_delete_btn2").click(function() {
     })
 });
 $(".close").click(function () {
-    $("#delete2").slideUp(300);
+    $("#delete3").slideUp(300);
     mask.fadeOut(300);
 });
 resourceTable.DataTable({
@@ -115,7 +187,7 @@ resourceTable.DataTable({
             }
         }
     ]});
-tasknowTable.DataTable({
+taskqueueTable.DataTable({
     //"aLengthMenu":[10],  //用户可自选每页展示数量 5条或10条
     "searching":false,//禁用搜索（搜索框）
     //"lengthChange":true,

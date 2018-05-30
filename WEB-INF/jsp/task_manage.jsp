@@ -23,8 +23,127 @@
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
+                    <div id="task_list">
+                            <button id="mainMenu" type="button" onclick="(function() {
+                                window.location.href='manage_option';
+                            })();">返回主菜单</button>
+                            <button id="refresh" type="button" onclick="(function() {
+                                window.location.reload();})()
+                            ">刷新</button>
+                            <button id="delete_task_btn1" type="button" class="window_btn">删除任务</button>
+                            <div class="tab_card" style="display: block;">
+                                <table id="taskpast_table" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr class="first" style="font-size:15px">
+                                            <th>提交时间</th>
+                                            <th>任务ID</th>
+                                            <th>提交者</th>
+                                            <th>哈希类型</th>
+                                            <th>哈希字符串</th>
+                                            <th>任务分配时间</th>
+                                            <th>总共计算哈希数量</th>
+                                            <th>已计算哈希数</th>
+                                            <th>任务状态</th>
+                                            <th>任务结果</th>
+                                            <th>信息更新时间</th>
+                                            <th>预计结束时间</th>
+                                            <th>分配到</th>
+                                        </tr>
+                                     </thead>
+                                     <tbody id="historyAnchor" style="font-size:12px">
+
+                                     </tbody >
+                                </table>
+                            </div>
+                        </div>
+                    <div class="window" id="delete" style="display: none;">
+                        <div class="show_head">
+                            <span><a class="close" href="#" title="关闭">×</a></span>
+                        </div>
+                        <div class="delete_table_container">
+                            <div>确认删除任务?</div>
+                            <table>
+                                <tr>
+                                    <td class="td1"><label for="taskId">任务ID</label></td>
+                                    <td class="td2"><input type="text" id="taskpastId" name="taskId" readonly="readonly" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="td1"><button id="confirm_delete_btn1">确认</button></td>
+                                    <td class="td2"><button id="cancel_delete_btn" class="close">取消</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="detail" class="window" style="display:none;">
+                            <div style="margin-bottom: 20px;">
+                                <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                                <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
+                            </div>
+                            <textarea id="description_text" rows=15 style="width:70%;padding:0;"> </textarea><br/>
+                    </div>
+                    <script src="../../js/taskpast.js" type="text/javascript"></script>
                 </div>
                 <div class="layui-tab-item">
+                    <div id="task_list">
+                            <button id="mainMenu" type="button" onclick="(function() {
+                                window.location.href='manage_option';
+                            })();">返回主菜单</button>
+                            <button id="refresh" type="button" onclick="(function() {
+                                window.location.reload();})()
+                            ">刷新</button>
+                            <button id="delete_task_btn2" type="button" class="window_btn">删除任务</button>
+                            <div class="tab_card" style="display: block;">
+                                <table id="tasknow_table" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr class="first" style="font-size:15px">
+                                            <th>提交时间</th>
+                                            <th>任务ID</th>
+                                            <th>提交者</th>
+                                            <th>哈希类型</th>
+                                            <th>哈希字符串</th>
+                                            <th>任务分配时间</th>
+                                            <th>总共计算哈希数量</th>
+                                            <th>已计算哈希数</th>
+                                            <th>任务状态</th>
+                                            <th>任务结果</th>
+                                            <th>信息更新时间</th>
+                                            <th>预计结束时间</th>
+                                            <th>分配到</th>
+                                        </tr>
+                                     </thead>
+                                     <tbody id="historyAnchor" style="font-size:12px">
+
+                                     </tbody >
+                                </table>
+                            </div>
+                        </div>
+                    
+                    <div class="window" id="delete2" style="display: none;">
+                        <div class="show_head">
+                            <span><a class="close" href="#" title="关闭">×</a></span>
+                        </div>
+                        <div class="delete_table_container">
+                            <div>确认删除任务?</div>
+                            <table>
+                                <tr>
+                                    <td class="td1"><label for="taskId">任务ID</label></td>
+                                    <td class="td2"><input type="text" id="tasknowId" name="taskId" readonly="readonly" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="td1"><button id="confirm_delete_btn2">确认</button></td>
+                                    <td class="td2"><button id="cancel_delete_btn" class="close">取消</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="detail" class="window" style="display:none;">
+                            <div style="margin-bottom: 20px;">
+                                <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                                <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
+                            </div>
+                            <textarea id="description_text" rows=15 style="width:70%;padding:0;"> </textarea><br/>
+                    </div>
+                    <script src="../../js/tasknow.js" type="text/javascript"></script>
                 </div>
                 <div class="layui-tab-item">           
                     <div id="task_list">
@@ -35,9 +154,9 @@
                             <button id="refresh" type="button" onclick="(function() {
                                 window.location.reload();})()
                             ">刷新</button>
-                            <button id="delete_task_btn" type="button" class="window_btn">删除任务</button>
+                            <button id="delete_task_btn3" type="button" class="window_btn">删除任务</button>
                             <div class="tab_card" style="display: block;">
-                                <table id="task_table" cellspacing="0" width="100%">
+                                <table id="taskqueue_table" cellspacing="0" width="100%">
                                     <thead>
                                         <tr class="first" style="font-size:15px">
                                             <th>提交时间</th>
@@ -92,34 +211,32 @@
                                 </table>
                             </form>
                       </div>
-                        <div class="window" id="delete" style="display: none;">
-                            <div class="show_head">
-                                <span><a class="close" href="#" title="关闭">×</a></span>
-                            </div>
-                            <div class="delete_table_container">
-                                <div>确认删除任务?</div>
-                                <table>
-                                    <tr>
-                                        <td class="td1"><label for="taskId">任务ID</label></td>
-                                        <td class="td2"><input type="text" id="taskId" name="taskId" readonly="readonly" value="" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td1"><button id="confirm_delete_btn">确认</button></td>
-                                        <td class="td2"><button id="cancel_delete_btn" class="close">取消</button></td>
-                                    </tr>
-                                </table>
-                            </div>
+                    <div class="window" id="delete3" style="display: none;">
+                        <div class="show_head">
+                            <span><a class="close" href="#" title="关闭">×</a></span>
                         </div>
+                        <div class="delete_table_container">
+                            <div>确认删除任务?</div>
+                            <table>
+                                <tr>
+                                    <td class="td1"><label for="taskId">任务ID</label></td>
+                                    <td class="td2"><input type="text" id="taskqueueId" name="taskId" readonly="readonly" value="" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="td1"><button id="confirm_delete_btn3">确认</button></td>
+                                    <td class="td2"><button id="cancel_delete_btn" class="close">取消</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <div id="detail" class="window" style="display:none;">
                             <div style="margin-bottom: 20px;">
                                 <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
                                 <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                             </div>
-                            <textarea id="description_text" rows=15 style="width:70%;padding:0;">
-                            </textarea><br />
-                        </div>
+                            <textarea id="description_text" rows=15 style="width:70%;padding:0;"> </textarea><br/>
                     </div>
-                    <script src="../../js/tasknow.js" type="text/javascript"></script>
+                    <script src="../../js/taskqueue.js" type="text/javascript"></script>
                 </div>
             </div>
         </div>
