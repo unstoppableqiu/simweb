@@ -32,18 +32,6 @@
                 border-radius:5px;
                 text-align:center;
             }
-            div#mask{
-                width:100%;
-                height:300%;
-                position:fixed;
-                background-color:#000;
-                top:0;
-                left:0;
-                z-index:2;
-                opacity:0.3;
-                filter: alpha(opacity=30);
-                display:none;
-            }
             .delete_table_container {
                 margin-top: 15%;
             }
@@ -67,7 +55,6 @@
     </head>
     <body>
         <%@include file="head.jsp"%>
-        <div id="mask"></div>
         <div id='main'>
         <div id='option'>
                 <ul id="tab_buttons">
@@ -92,8 +79,6 @@
                             	<th>提交者</th>
                             	<th>哈希类型</th>
                             	<th>哈希字符串</th>
-                            	<th>破解类型</th>
-                                <th>破解参数</th>
                                 <th>任务分配时间</th>
                                 <th>总共计算哈希数量</th>
                                 <th>已计算哈希数</th>
@@ -388,8 +373,6 @@
                     {"data": "submitUser"},
                     {"data": "hashType"},
                     {"data": "hashString"},
-                    {"data": "crackType"},
-                    {"data": "crackString"},
                     {"data": "assignTime"},
                     {"data": "numTotalHash"},
                     {"data": "numProcHash"},
@@ -400,7 +383,7 @@
                     {"data": "cname"}
                 ],
                 "columnDefs":[{
-                    "targets":10,
+                    "targets":8,
                     "render": function ( data, type, row ) {
                         if(data===0)
                             return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#9BCD9B;border-radius:5px;width:60px;color:white">排队中</span>';
@@ -418,7 +401,7 @@
                             return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#0c0c0c;border-radius:5px;width:60px;color:white">未找到</span>';
                     }},
                     {
-                      "targets": [4, 6, 11],
+                      "targets": [4, 9],
                       "render": function (data) {
                           return '<span class="hash_string" style="font-size:10px;text-align:center;display:inline-block;background-color:#FFFFFF;border-radius:5px;width:60px;color:white">' +
                               '<img src="../../image/detail.png" alt="' + data + '"/></span>';
@@ -427,21 +410,13 @@
                     {
                     "targets":5,
                     "render": function ( data, type, row ) {
-                        if(data===0)
-                            return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#B8B8B8;border-radius:5px;width:60px;color:white">枚举</span>';
-                        else
-                            return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#B3EE3A;border-radius:5px;width:60px;color:white">字典</span>';
-                    }},
-                    {
-                    "targets":7,
-                    "render": function ( data, type, row ) {
                         if(data==="\"null\"")
                             return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
                         else
                             return data;
                     }},
                     {
-                    "targets":8,
+                    "targets":6,
                     "render": function ( data, type, row ) {
                         if(data==="-1")
                             return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
@@ -449,7 +424,7 @@
                             return data;
                     }},
                     {
-                    "targets":9,
+                    "targets":7,
                     "render": function ( data, type, row ) {
                         if(data==="-1")
                             return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
