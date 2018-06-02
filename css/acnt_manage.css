@@ -40,21 +40,9 @@ div#task_list{
 #user_table span{
     text-align:left
 }
-button{
-	width:150px;
-	height:35px;
-    margin-bottom:20px;
-}
-button{
-    margin-left:10px;
-    float:right;
-	font-size:14px;
-	padding:0;
-    border:1px solid #AAAAAA;
-    background:linear-gradient(white, #EEEEEE);
-    border-radius:3px;
-    cursor:pointer
-}
-button:active{
-    background:linear-gradient(#EEEEEE,white);
+.btngroup {
+    position: relative;
+    float: right;
+    right: 10px;
+    margin-bottom: 15px;
 }
