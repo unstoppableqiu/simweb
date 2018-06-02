@@ -108,8 +108,8 @@
                 </select>
             </div>
             <div style="margin:50px 0;text-align:center;height:10%;">
-                <button id="cancel_task" type="button">取消提交</button>
-                <button id="submit_task" type="button">提交任务</button>
+                <button id="cancel_task" class="layui-btn layui-btn-normal" type="button">取消提交</button>
+                <button id="submit_task" class="layui-btn layui-btn-normal" type="button">提交任务</button>
             </div>
         </div>
     </body>

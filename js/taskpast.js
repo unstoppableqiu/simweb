@@ -2,7 +2,6 @@ var tab = "past";
 var selected = null;
 var taskpastTable = $("#taskpast_table");
 var mask = $("#mask");
-var resourceTable = $("#resource_table");
 $("#tab_buttons").on("click", "li", (function () {
     tab = $(this).attr("id");
     taskpastTable.DataTable().clear();
@@ -17,13 +16,6 @@ $("tbody" ).on("click", ".hash_string", function (e) {
 $(".close").click(function (e) {
     $("#detail").slideUp(300).css("display", "none");
     mask.fadeOut(300);
-});
-// 单选
-resourceTable.on("click", "tr", function () {
-    if (!$(this).hasClass("selected"))
-        $(".selected").removeClass("selected");
-    $(this).toggleClass("selected");
-
 });
 taskpastTable.on("click", "tr", function () {
     if (!$(this).hasClass("selected"))
@@ -59,63 +51,6 @@ $(".close").click(function () {
     $("#delete").slideUp(300);
     mask.fadeOut(300);
 });
-resourceTable.DataTable({
-    "ajax": {
-        "type": "POST",
-        "url": "../cresource/all",
-        "dataType": "json"
-    },
-    "columns": [
-        {"data": "cname"},
-        {"data": "description"},
-        {"data": "phyLoc"},
-        {"data": "type"},
-        {"data": "status"},
-        {"data": "lstSrvUpdate"},
-        {"data": "ip"},
-        {"data": "availNodes"},
-        {"data": null}
-    ],
-    "columnDefs": [
-        {
-            "targets": [1, 2],
-            "render": function (data) {
-                return '<span class="hash_string" style="font-size:10px;text-align:center;display:inline-block;background-color:#FFFFFF;border-radius:5px;width:60px;color:white">' +
-                    '<img src="../../image/detail.png" alt="' + data + '"/></span>';
-            }
-        },
-        {
-            "targets": 3,
-            "render": function (data, type, row) {
-                if (data === 0)
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#ADFF2F;border-radius:5px;width:60px;color:white">GPU集群</span>';
-                else if (data === 1)
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#EE7600;border-radius:5px;width:60px;color:white">超算</span>';
-                else
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
-            }
-        },
-        {
-            "targets":4,
-            "render": function ( data, type, row ) {
-                if(data===0)
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#ADFF2F;border-radius:5px;width:60px;color:white">Idle</span>';
-                else if(data===1)
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#EE7600;border-radius:5px;width:60px;color:white">Busy</span>';
-                else if(data===2)
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Disconnect</span>';
-            }
-        },
-        {
-            "targets":7,
-            "render": function ( data, type, row ) {
-                if(data===-1)
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
-                else
-                    return data;
-            }
-        }
-    ]});
 taskpastTable.DataTable({
     //"aLengthMenu":[10],  //用户可自选每页展示数量 5条或10条
     "searching":false,//禁用搜索（搜索框）
@@ -144,15 +79,13 @@ taskpastTable.DataTable({
         {"data": "hashString"},
         {"data": "assignTime"},
         {"data": "numTotalHash"},
-        {"data": "numProcHash"},
         {"data": "status"},
         {"data": "result"},
         {"data": "lastSrvUpdate"},
-        {"data": "finishTime"},
         {"data": "cname"}
     ],
     "columnDefs":[{
-        "targets":8,
+        "targets":7,
         "render": function ( data, type, row ) {
             if(data===0)
                 return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#9BCD9B;border-radius:5px;width:60px;color:white">排队中</span>';
@@ -170,7 +103,7 @@ taskpastTable.DataTable({
                 return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#0c0c0c;border-radius:5px;width:60px;color:white">未找到</span>';
         }},
         {
-            "targets": [4, 9],
+            "targets": [4, 8],
             "render": function (data) {
                 return '<span class="hash_string" style="font-size:10px;text-align:center;display:inline-block;background-color:#FFFFFF;border-radius:5px;width:60px;color:white">' +
                     '<img src="../../image/detail.png" alt="' + data + '"/></span>';
@@ -186,14 +119,6 @@ taskpastTable.DataTable({
             }},
         {
             "targets":6,
-            "render": function ( data, type, row ) {
-                if(data==="-1")
-                    return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
-                else
-                    return data;
-            }},
-        {
-            "targets":7,
             "render": function ( data, type, row ) {
                 if(data==="-1")
                     return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
