@@ -62,12 +62,12 @@
         <%@include file="head.jsp"%>
         <div id='main'>
             <div id="task_list">
-                <button id="refresh" type="button" onclick="window.location.reload();
+                <button id="refresh" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="window.location.reload();
                 ">刷新列表</button>
-                <button id="mainMenu" type="button" onclick="window.location.href='./manage_option'">返回主菜单</button>
-                <button id="create_account" type="button" class="window_btn">新建账号</button>
-                <button id="delete_account" type="button" class="window_btn">删除账号</button>
-                <button id="update_account" type="button" class="window_btn">修改账号</button>
+                <button id="mainMenu" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="window.location.href='./manage_option'">返回主菜单</button>
+                <button id="create_account" class="layui-btn layui-btn-radius layui-btn-primary" type="button">新建账号</button>
+                <button id="delete_account" type="button" class="layui-btn layui-btn-radius layui-btn-danger">删除账号</button>
+                <button id="update_account" class="layui-btn layui-btn-radius layui-btn-primary" type="button">修改账号</button>
                 <table id="user_table" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr id="first">

@@ -43,7 +43,8 @@ div#task_list{
 .btngroup {
     position: relative;
     float: right;
-    right: 5%;
+    right: 10px;
+    margin-bottom: 15px;
 }
 /*new
 *

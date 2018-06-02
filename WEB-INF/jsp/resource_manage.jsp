@@ -58,7 +58,6 @@
     </head>
     <body>
         <%@include file="head.jsp"%>
-        <div id="mask"></div>
         <div id='main'>
             <div id='option'>
                 <ul id="tab_buttons">
@@ -66,11 +65,13 @@
                 </ul> 
             </div>
             <div id="task_list">
-                <button id="refresh" type="button" class="window_btn" onclick="window.location.reload()">刷新列表</button>
-            	<button id="mainMenu" type="button" onclick="window.location.href='./manage_option'">返回主菜单</button>
-                <button class="window_btn" id="update_task" type="button">编辑资源</button>
-                <button class="window_btn" id="create_task" type="button">添加资源</button>
-                <button class="window_btn" id="remove_task" type="button">删除资源</button>
+                <div class="btngroup">
+                    <button id="refresh" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="window.location.reload()">刷新列表</button>
+                	<button id="mainMenu" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="window.location.href='./manage_option'">返回主菜单</button>
+                    <button class="layui-btn layui-btn-radius layui-btn-primary" id="update_task" type="button">编辑资源</button>
+                    <button class="layui-btn layui-btn-radius layui-btn-primary" id="create_task" type="button">添加资源</button>
+                    <button class="layui-btn layui-btn-radius layui-btn-danger" id="remove_task" type="button">删除资源</button>
+                </div>
                 <div class="tab_card" id="history">
                     <table id="resource_table" class="display" cellspacing="0" width="100%">
                         <thead>

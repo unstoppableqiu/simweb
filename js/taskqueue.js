@@ -6,7 +6,6 @@ var resourceTable = $("#resource_table");
 $("#tab_buttons").on("click", "li", (function () {
     tab = $(this).attr("id");
     taskqueueTable.DataTable().clear();
-    taskqueueTable.DataTable().ajax.url("../task/"+tab).load()
 }));
 $("tbody" ).on("click", ".hash_string", function (e) {
     var hash_string = $(this).children("img").attr("alt")
@@ -204,7 +203,7 @@ taskqueueTable.DataTable({
     "order": [[0, "desc"]],
     "ajax": {
         "type": "POST",
-        "url": "../task/past",
+        "url": "../task/queue",
         "dataType": "json"
     },
     "columns": [

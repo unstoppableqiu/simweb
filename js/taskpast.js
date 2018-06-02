@@ -5,7 +5,6 @@ var mask = $("#mask");
 $("#tab_buttons").on("click", "li", (function () {
     tab = $(this).attr("id");
     taskpastTable.DataTable().clear();
-    taskpastTable.DataTable().ajax.url("../task/"+tab).load()
 }));
 $("tbody" ).on("click", ".hash_string", function (e) {
     var hash_string = $(this).children("img").attr("alt")
@@ -78,6 +77,7 @@ taskpastTable.DataTable({
         {"data": "hashType"},
         {"data": "hashString"},
         {"data": "assignTime"},
+        {"data": "startTime"},
         {"data": "numTotalHash"},
         {"data": "status"},
         {"data": "result"},
@@ -85,7 +85,7 @@ taskpastTable.DataTable({
         {"data": "cname"}
     ],
     "columnDefs":[{
-        "targets":7,
+        "targets":8,
         "render": function ( data, type, row ) {
             if(data===0)
                 return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#9BCD9B;border-radius:5px;width:60px;color:white">排队中</span>';
@@ -103,7 +103,7 @@ taskpastTable.DataTable({
                 return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#0c0c0c;border-radius:5px;width:60px;color:white">未找到</span>';
         }},
         {
-            "targets": [4, 8],
+            "targets": [4, 9],
             "render": function (data) {
                 return '<span class="hash_string" style="font-size:10px;text-align:center;display:inline-block;background-color:#FFFFFF;border-radius:5px;width:60px;color:white">' +
                     '<img src="../../image/detail.png" alt="' + data + '"/></span>';
@@ -118,7 +118,7 @@ taskpastTable.DataTable({
                     return data;
             }},
         {
-            "targets":6,
+            "targets":7,
             "render": function ( data, type, row ) {
                 if(data==="-1")
                     return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#CCCCCC;border-radius:5px;width:60px;color:white">Unknown</span>';
