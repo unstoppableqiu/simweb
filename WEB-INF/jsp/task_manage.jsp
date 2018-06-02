@@ -5,7 +5,7 @@
     <head>
         <title>任务管理</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/datatables.min.css" />
         <link rel="stylesheet" type="text/css" href="../../css/task.css" />
         <link rel="stylesheet" type="text/css" href="../../css/header.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style2.css" />

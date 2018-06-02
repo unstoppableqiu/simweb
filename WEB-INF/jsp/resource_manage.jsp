@@ -59,11 +59,6 @@
     <body>
         <%@include file="head.jsp"%>
         <div id='main'>
-            <div id='option'>
-                <ul id="tab_buttons">
-                    <li>资源列表</li>
-                </ul> 
-            </div>
             <div id="task_list">
                 <div class="btngroup">
                     <button id="refresh" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="window.location.reload()">刷新列表</button>

@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="../../css/acnt_manage.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style2.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminindex.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/datatables.min.css"/>
         <style>
             .window{
                 width:600px;
