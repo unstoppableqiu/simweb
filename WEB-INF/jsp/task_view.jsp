@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <%@include file="head.jsp"%>
         <title>任务管理</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/datatables.min.css" />
@@ -9,22 +10,8 @@
         <link rel="stylesheet" type="text/css" href="../../css/header.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style2.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminindex.css" />
-        <style>
-            .window{
-                width:600px;
-                height:400px;
-                background-color:white;
-                position:fixed;
-                top:50%;
-                left:50%;
-                margin-left:-300px;
-                margin-top:-200px;
-                z-index:100;
-                padding:20px;
-                border-radius:5px;
-                text-align:center;
-                display: none;
-            }
+        <style>]
+            
             .update_table_container {
                 margin-top: 10%;
             }
@@ -32,26 +19,14 @@
                 text-align: center;
                 display: inline-block;
             }
-            .show_head{
-                text-align:right;
-            }
-            table tr{
-            	vertical-align:middle;
-            }
-             table tr td{
-            	vertical-align:middle;
-            }
              input[type="text"] {
                  width: 250px;
                  text-align:center;
              }
-            .hash_string:hover {
-                cursor: pointer;
-            }
         </style>
     </head>
     <body>
-    <%@include file="head.jsp"%>
+        <div id="mask"></div>
         <div id='main'>
             <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                 <ul class="layui-tab-title">
@@ -130,12 +105,12 @@
                         </table>
                         </div>
                     </div>
-                    <div id="detail" class="window">
+                    <div id="detail1" class="window">
                     <div style="margin-bottom: 20px;">
-                        <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                        <div class="detailtitle">Detail</div>
                         <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                     </div>
-                    <textarea id="description_text" rows=15 style="width:70%;padding:0;">
+                    <textarea id="description_text1" rows=15>
                     </textarea><br />
                     </div>
                     <script src="../../js/taskuserpast.js" type="text/javascript"></script>
@@ -211,12 +186,12 @@
                         </table>
                         </div>
                     </div>
-                    <div id="detail" class="window">
+                    <div id="detail2" class="window">
                     <div style="margin-bottom: 20px;">
-                        <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                        <div class="detailtitle">Detail</div>
                         <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                     </div>
-                    <textarea id="description_text" rows=15 style="width:70%;padding:0;">
+                    <textarea id="description_text2" rows=15>
                     </textarea><br />
                     </div>
                     <script src="../../js/taskusernow.js" type="text/javascript"></script>
@@ -287,12 +262,12 @@
                         </table>
                         </div>
                     </div>
-                    <div id="detail" class="window">
+                    <div id="detail3" class="window">
                     <div style="margin-bottom: 20px;">
-                        <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                        <div class="detailtitle">Detail</div>
                         <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                     </div>
-                    <textarea id="description_text" rows=15 style="width:70%;padding:0;">
+                    <textarea id="description_text3" rows=15>
                     </textarea><br />
                     </div>
                     <script src="../../js/taskuserqueue.js" type="text/javascript"></script>

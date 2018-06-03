@@ -24,10 +24,9 @@ taskpastTable.on("click", "tr", function () {
 });
 
 $("#delete_task_btn1").click(function() {
-    $("#delete").slideDown(300);
+    $("#delete1").slideDown(300);
     mask.fadeIn(300);
     $("#taskpastId").val(selected["taskId"]);
-    console.log('click');
 });
 $("#confirm_delete_btn1").click(function() {
     $.ajax({

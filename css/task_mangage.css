@@ -5,36 +5,9 @@
     margin-top:-300px;
     padding:0;
 }
-.window{
-    width:600px;
-    height:400px;
-    background-color:white;
-    position:fixed;
-    top:50%;
-    left:50%;
-    margin-left:-300px;
-    margin-top:-200px;
-    z-index:100;
-    padding:20px;
-    border-radius:5px;
-    text-align:center;
-}
 .delete_table_container {
     margin-top: 15%;
 }
-.window table {
-    text-align: center;
-    display: inline-block;
-}
-.show_head{
-    text-align:right;
-}
-table tr{
-    vertical-align:middle;
-}
-table tr td{
-    vertical-align:middle;
-}
-.hash_string:hover {
-    cursor: pointer;
+.deleteid{
+    margin-left: 26%;
 }

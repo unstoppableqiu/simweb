@@ -33,31 +33,31 @@
                             ">刷新</button>
                             <button id="delete_task_btn1" type="button" class="layui-btn layui-btn-radius layui-btn-danger">删除任务</button>
                         </div>
-                            <div class="tab_card" style="display: block;">
-                                <table id="taskpast_table" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr class="first" style="font-size:15px">
-                                            <th>提交时间</th>
-                                            <th>任务ID</th>
-                                            <th>提交者</th>
-                                            <th>哈希类型</th>
-                                            <th>哈希字符串</th>
-                                            <th>任务分配时间</th>
-                                            <th>任务开始时间</th>
-                                            <th>总共计算哈希数量</th>
-                                            <th>任务状态</th>
-                                            <th>任务结果</th>
-                                            <th>信息更新时间</th>
-                                            <th>分配到</th>
-                                        </tr>
-                                     </thead>
-                                     <tbody style="font-size:12px">
+                        <div class="tab_card" style="display: block;">
+                            <table id="taskpast_table" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="first" style="font-size:15px">
+                                        <th>提交时间</th>
+                                        <th>任务ID</th>
+                                        <th>提交者</th>
+                                        <th>哈希类型</th>
+                                        <th>哈希字符串</th>
+                                        <th>任务分配时间</th>
+                                        <th>任务开始时间</th>
+                                        <th>总共计算哈希数量</th>
+                                        <th>任务状态</th>
+                                        <th>任务结果</th>
+                                        <th>信息更新时间</th>
+                                        <th>分配到</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody style="font-size:12px">
 
-                                     </tbody >
-                                </table>
-                            </div>
+                                 </tbody >
+                            </table>
                         </div>
-                    <div class="window" id="delete" style="display: none;">
+                    </div>
+                    <div class="window" id="delete1" style="display: none;">
                         <div class="show_head">
                             <span><a class="close" href="#" title="关闭">×</a></span>
                         </div>
@@ -77,10 +77,10 @@
                     </div>
                     <div id="detail" class="window" style="display:none;">
                             <div style="margin-bottom: 20px;">
-                                <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                                <div class="detailtitle">Detail</div>
                                 <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                             </div>
-                            <textarea id="description_text" rows=15 style="width:70%;padding:0;"> </textarea><br/>
+                            <textarea id="description_text" rows=15> </textarea><br/>
                     </div>
                     <script src="../../js/taskpast.js" type="text/javascript"></script>
                 </div>
@@ -133,18 +133,18 @@
                                     <td class="td2"><input type="text" id="tasknowId" name="taskId" readonly="readonly" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <td class="td1"><button id="confirm_delete_btn2">确认</button></td>
-                                    <td class="td2"><button id="cancel_delete_btn" class="close">取消</button></td>
+                                    <td class="td1"><button id="confirm_delete_btn2" class="layui-btn layui-btn-danger">确认</button></td>
+                                    <td class="td2"><button id="cancel_delete_btn" class="layui-btn layui-btn-normal">取消</button></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <div id="detail2" class="window" style="display:none;">
                             <div style="margin-bottom: 20px;">
-                                <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                                <div class="detailtitle">Detail</div>
                                 <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                             </div>
-                            <textarea id="description_text2" rows=15 style="width:70%;padding:0;"> </textarea><br/>
+                            <textarea id="description_text2" rows=15> </textarea><br/>
                     </div>
                     <script src="../../js/tasknow.js" type="text/javascript"></script>
                 </div>
@@ -223,7 +223,7 @@
                                     <td class="td2"><input type="text" id="taskqueueId" name="taskId" readonly="readonly" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <td class="td1"><button id="confirm_delete_btn3" class="layui-btn layui-btn-normal">确认</button></td>
+                                    <td class="td1"><button id="confirm_delete_btn3" class="layui-btn layui-btn-danger">确认</button></td>
                                     <td class="td2"><button id="cancel_delete_btn" class="layui-btn layui-btn-normal">取消</button></td>
                                 </tr>
                             </table>
@@ -231,10 +231,10 @@
                     </div>
                     <div id="detail3" class="window" style="display:none;">
                             <div style="margin-bottom: 20px;">
-                                <div style="margin-left:10%;width:80%;float:left;text-align: center">Detail</div>
+                                <div class="detailtitle">Detail</div>
                                 <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
                             </div>
-                            <textarea id="description_text3" rows=15 style="width:70%;padding:0;"> </textarea><br/>
+                            <textarea id="description_text3" rows=15 > </textarea><br/>
                     </div>
                     <script src="../../js/taskqueue.js" type="text/javascript"></script>
                 </div>

@@ -6,8 +6,8 @@ $("#tab_buttons li").click(function () {
 });
 $("tbody" ).on("click", ".hash_string", function (e) {
     var hash_string = $(this).children("img").attr("alt")
-    $("#description_text").text(hash_string);
-    $("#detail").slideDown(300).css("display", "block");
+    $("#description_text1").text(hash_string);
+    $("#detail1").slideDown(300).css("display", "block");
     $("#mask").fadeIn(300);
 });
 $(".close").click(function () {
