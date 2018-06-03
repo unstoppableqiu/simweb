@@ -161,7 +161,7 @@
                             <button id="refresh" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="(function() {
                                 window.location.reload();})()
                             ">刷新</button>
-                            <button id="delete_task_btn3" type="button" class="layui-btn layui-btn-radius layui-btn-danger">删除任务</button>
+                            <button id="delete_task_btn3" type="button" class="layui-btn layui-btn-xs layui-btn-radius layui-btn-danger">删除任务</button>
                         </div>    
                             <div class="tab_card" style="display: block;">
                                 <table id="taskqueue_table" cellspacing="0" width="100%">
@@ -183,18 +183,18 @@
                                 </table>
                             </div>
                         </div>
-                    <div class="window" id="select_resource" style="display:none;overflow:scroll;">
-                            <div class="show_head">
-                              <span><a id="close" href="#" title="关闭">×</a></span>
-                            </div>
-                            <form action="../task/assign" method="post">
-                                <label for="nodes_to_use" class="gpu_hidden">节点数</label>
-                                <input id="nodes_to_use" class="gpu_hidden" value="">
-                                <label for="task_selected">任务</label>
-                                <input id="task_selected" value="">————>
-                                <label for="resource_selected">计算资源</label>
-                                <input id="resource_selected" value="">
-                                <input id="assign_confirm" type="button" value="确定">
+                    <div class="window" id="select_resource" style="display:none;overflow:scroll;"> 
+                            <form class="dilform" action="../task/assign" method="post">
+                                <div class="detailtitle" style="margin-bottom: 20px">
+                                    <label for="nodes_to_use" class="gpu_hidden">节点数</label>
+                                    <input id="nodes_to_use" class="gpu_hidden" value="">
+                                    <label for="task_selected">任务</label>
+                                    <input id="task_selected" value="">————>
+                                    <label for="resource_selected">计算资源</label>
+                                    <input id="resource_selected" value="">
+                                    <input id="assign_confirm" style="margin-left: 10px" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary" type="button" value="确定">
+                                    <a id="close" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-normal" href="#" title="关闭">取消</a>
+                                </div>
                                 <table id="resource_table" class="display" cellspacing="0" width="100%">
                                     <thead>
                                         <tr id="first">

@@ -15,3 +15,17 @@
     font-size: 17px;
     font-weight: 200;
 }
+.dilform {
+    margin: 20px;
+}
+.show_head2 {
+    position: relative;
+    top: -10px;
+    right: -70px;
+    text-align: right;
+    float: right;
+    margin-bottom: 40px;
+}
+.show_head2 a{
+    font-size: 25px;
+}
