@@ -161,7 +161,7 @@
                             <button id="refresh" type="button" class="layui-btn layui-btn-radius layui-btn-primary" onclick="(function() {
                                 window.location.reload();})()
                             ">刷新</button>
-                            <button id="delete_task_btn3" type="button" class="layui-btn layui-btn-xs layui-btn-radius layui-btn-danger">删除任务</button>
+                            <button id="delete_task_btn3" type="button" class="layui-btn layui-btn-radius layui-btn-danger">删除任务</button>
                         </div>    
                             <div class="tab_card" style="display: block;">
                                 <table id="taskqueue_table" cellspacing="0" width="100%">
