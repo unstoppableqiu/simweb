@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%@include file="head.jsp"%>
         <title>任务管理</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/datatables.min.css" />
@@ -13,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/task_mangage.css" />
     </head>
     <body>
-        <%@include file="head.jsp"%>
+        <div id="mask"></div>
         <div id='main'>
         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
             <ul class="layui-tab-title">
@@ -57,28 +58,30 @@
                             </table>
                         </div>
                     </div>
-                    <div class="window" id="delete1" style="display: none;">
-                        <div class="show_head">
-                            <span><a class="close" href="#" title="关闭">×</a></span>
+                    <div class="window" id="delete" style="display: none;">
+                        <div style="margin-bottom: 20px;">
+                            <div class="detailtitle">确认删除任务?</div>
+                            <span style="width:20%" class="show_head">
+                                <a class="close" href="#" title="关闭">×</a>
+                            </span>
                         </div>
                         <div class="delete_table_container">
-                            <div>确认删除任务?</div>
-                            <table>
-                                <tr>
-                                    <td class="td1"><label for="taskId">任务ID</label></td>
-                                    <td class="td2"><input type="text" id="taskpastId" name="taskId" readonly="readonly" value="" /></td>
-                                </tr>
-                                <tr>
-                                    <td class="td1"><button id="confirm_delete_btn1" class="layui-btn layui-btn-normal">确认</button></td>
-                                    <td class="td2"><button id="cancel_delete_btn" class="layui-btn layui-btn-normal">取消</button></td>
-                                </tr>
-                            </table>
+                            <div class="deleteid">
+                                <label for="taskId">任务ID</label>
+                                <input class="layui-input" style="text-align: center;" type="text" id="taskpastId" name="taskId" readonly="readonly" value="" />
+                            </div>
+                            <div>
+                                <button id="confirm_delete_btn1" class="layui-btn layui-btn-danger">确认</button>
+                                <button id="cancel_delete_btn" class="layui-btn layui-btn-normal">取消</button>
+                            </div>
                         </div>
                     </div>
                     <div id="detail" class="window" style="display:none;">
                             <div style="margin-bottom: 20px;">
                                 <div class="detailtitle">Detail</div>
-                                <span style="width:20%" class="show_head"><a class="close" href="#" title="关闭">×</a></span>
+                                <span style="width:20%" class="show_head">
+                                    <a class="close" href="#" title="关闭">×</a>
+                                </span>
                             </div>
                             <textarea id="description_text" rows=15> </textarea><br/>
                     </div>
@@ -122,21 +125,21 @@
                         </div>
                     
                     <div class="window" id="delete2" style="display: none;">
-                        <div class="show_head">
-                            <span><a class="close" href="#" title="关闭">×</a></span>
+                        <div style="margin-bottom: 20px;">
+                            <div class="detailtitle">确认删除任务?</div>
+                            <span style="width:20%" class="show_head">
+                                <a class="close" href="#" title="关闭">×</a>
+                            </span>
                         </div>
                         <div class="delete_table_container">
-                            <div>确认删除任务?</div>
-                            <table>
-                                <tr>
-                                    <td class="td1"><label for="taskId">任务ID</label></td>
-                                    <td class="td2"><input type="text" id="tasknowId" name="taskId" readonly="readonly" value="" /></td>
-                                </tr>
-                                <tr>
-                                    <td class="td1"><button id="confirm_delete_btn2" class="layui-btn layui-btn-danger">确认</button></td>
-                                    <td class="td2"><button id="cancel_delete_btn" class="layui-btn layui-btn-normal">取消</button></td>
-                                </tr>
-                            </table>
+                            <div class="deleteid">
+                                <label for="taskId">任务ID</label>
+                                <input class="layui-input" style="text-align: center;" type="text" id="tasknowId" name="taskId" readonly="readonly" value="" />
+                            </div>
+                            <div>
+                                <button id="confirm_delete_btn2" class="layui-btn layui-btn-danger">确认</button>
+                                <button id="cancel_delete_btn2" class="layui-btn layui-btn-normal">取消</button>
+                            </div>
                         </div>
                     </div>
                     <div id="detail2" class="window" style="display:none;">
@@ -212,21 +215,21 @@
                             </form>
                       </div>
                     <div class="window" id="delete3" style="display: none;">
-                        <div class="show_head">
-                            <span><a class="close" href="#" title="关闭">×</a></span>
+                        <div style="margin-bottom: 20px;">
+                            <div class="detailtitle">确认删除任务?</div>
+                            <span style="width:20%" class="show_head">
+                                <a class="close" href="#" title="关闭">×</a>
+                            </span>
                         </div>
                         <div class="delete_table_container">
-                            <div>确认删除任务?</div>
-                            <table>
-                                <tr>
-                                    <td class="td1"><label for="taskId">任务ID</label></td>
-                                    <td class="td2"><input type="text" id="taskqueueId" name="taskId" readonly="readonly" value="" /></td>
-                                </tr>
-                                <tr>
-                                    <td class="td1"><button id="confirm_delete_btn3" class="layui-btn layui-btn-danger">确认</button></td>
-                                    <td class="td2"><button id="cancel_delete_btn" class="layui-btn layui-btn-normal">取消</button></td>
-                                </tr>
-                            </table>
+                            <div class="deleteid">
+                                <label for="taskId">任务ID</label>
+                                <input class="layui-input" style="text-align: center;" type="text" id="taskqueueId" name="taskId" readonly="readonly" value="" />
+                            </div>
+                            <div>
+                                <button id="confirm_delete_btn3" class="layui-btn layui-btn-danger">确认</button>
+                                <button id="cancel_delete_btn3" class="layui-btn layui-btn-normal">取消</button>
+                            </div>
                         </div>
                     </div>
                     <div id="detail3" class="window" style="display:none;">

@@ -57,6 +57,10 @@ $(".close").click(function () {
     $("#delete2").slideUp(300);
     mask.fadeOut(300);
 });
+$("#cancel_delete_btn2").click(function () {
+    $("#delete2").slideUp(300);
+    mask.fadeOut(300);
+});
 resourceTable.DataTable({
     "ajax": {
         "type": "POST",

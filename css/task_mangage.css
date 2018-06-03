@@ -9,5 +9,9 @@
     margin-top: 15%;
 }
 .deleteid{
-    margin-left: 26%;
+    margin-bottom: 10%;
+}
+.deleteid label{
+    font-size: 17px;
+    font-weight: 200;
 }

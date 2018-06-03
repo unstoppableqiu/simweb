@@ -129,6 +129,10 @@ $(".close").click(function () {
     $("#delete3").slideUp(300);
     mask.fadeOut(300);
 });
+$("#cancel_delete_btn3").click(function () {
+    $("#delete3").slideUp(300);
+    mask.fadeOut(300);
+});
 resourceTable.DataTable({
     "ajax": {
         "type": "POST",

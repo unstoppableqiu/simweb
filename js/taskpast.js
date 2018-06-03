@@ -24,7 +24,7 @@ taskpastTable.on("click", "tr", function () {
 });
 
 $("#delete_task_btn1").click(function() {
-    $("#delete1").slideDown(300);
+    $("#delete").slideDown(300);
     mask.fadeIn(300);
     $("#taskpastId").val(selected["taskId"]);
 });
@@ -46,6 +46,10 @@ $("#confirm_delete_btn1").click(function() {
     })
 });
 $(".close").click(function () {
+    $("#delete").slideUp(300);
+    mask.fadeOut(300);
+});
+$("#cancel_delete_btn").click(function () {
     $("#delete").slideUp(300);
     mask.fadeOut(300);
 });
