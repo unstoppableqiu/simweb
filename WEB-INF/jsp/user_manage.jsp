@@ -1,7 +1,8 @@
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>   
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>  
+        <%@include file="head.jsp"%>
         <title>管理员界面</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/header.css" />
@@ -9,57 +10,8 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style2.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminindex.css" />
         <link rel="stylesheet" type="text/css" href="../../css/datatables.min.css"/>
-        <style>
-            .window{
-                width:600px;
-                height:400px;
-                background-color:white;
-                position:fixed;
-                top:50%;
-                left:50%;
-                margin-left:-300px;
-                margin-top:-200px;
-                z-index:100;
-                padding:20px;
-                border-radius:5px;
-                text-align:center;
-                display:none;
-            }
-            div#mask{
-                width:100%;
-                height:300%;
-                position:fixed;
-                background-color:#000;
-                top:0;
-                left:0;
-                z-index:2;
-                opacity:0.3;
-                filter: alpha(opacity=30);
-                display:none;
-            }
-            .window form{
-                margin-top:20%;
-                text-align:center;
-            }
-            .window table{
-                display:inline-block;
-            }
-            table tr{
-            	vertical-align:middle;
-            }
-             table tr td{
-            	vertical-align:middle;
-            }
-            .show_head{
-                text-align:right;
-            }
-            .detail {
-                display: none;
-            }
-        </style>
     </head>
     <body>
-        <%@include file="head.jsp"%>
         <div id='main'>
             <div id="task_list">
                 <div class="btngroup">
@@ -90,93 +42,117 @@
         </div>
         <div id="mask"></div>
         <div class="window" id="create">
+            <div class="detailtitle">创建账户</div>
             <div class="show_head">
               <span><a href="#" class="close" title="关闭">×</a></span>
             </div>
-            <form action="../account/add" method="post">
-              <div>创建账户</div>
-              <table>
-                    <tr>
-                        <td class="td1"><label for="name">账号</label></td>
-                        <td class="td2"><input type="text" id="name" value="" name="name" readonly="readonly"></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="password">密码</label></td>
-                        <td class="td2"><input type="text" id="password" value="" name="password" readonly="readonly"></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="token">令牌</label></td>
-                        <td class="td2"><input type="text" id="token" value="" name="token"></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="authkey">密钥</label></td>
-                        <td class="td2"><input type="text" id="authkey" value="" name="authkey"></td>
-                    </tr>
-                   <tr>
-                      <td class="td1"><label for="description">描述</label></td>
-                      <td class="td2"><input type="text" id="description" name="description" value=""/></td>
-                   </tr>
-                   <tr>
-                      <td class="td1"><label for="phyloc">物理地址</label></td>
-                      <td class="td2"><input type="text" id="phyloc" name="phyLoc" value=""/></td>
-                   </tr>
-                   <tr>
-                        <td colspan="2"><input type="submit"  id="create_confirm" class="confirm" value="确认">
-                   <input type="button" class="cancel" value="取消"></td>
-                   </tr>
-                  </table>
+            <form class="layui-form" action="../account/add" method="post">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="name">账号</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="name" value="" name="name" readonly="readonly" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="password">密码</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="password" value="" name="password" readonly="readonly" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="token">令牌</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="token" value="" name="token" placeholder="请输入令牌" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="authkey">密钥</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="authkey" value="" name="authkey" placeholder="请输入密钥" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="description">描述</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="description" name="description" value="" placeholder="请输入描述" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="phyloc">物理地址</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="phyloc" name="phyLoc" value="" placeholder="请输入物理地址" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="text-align: center;margin-left: 40px">
+                    <input type="submit"  id="create_confirm" class="layui-btn layui-btn-primary" value="确认">
+                    <input type="button"  class="cancel layui-btn layui-btn-normal" value="取消">
+                </div>
             </form>
         </div>
         <div class="window" id="delete">
-                <div class="show_head">
-                  <span><a href="#" class="close" title="关闭">×</a></span>
+            <div class="detailtitle">确认删除以下用户</div>
+            <div class="show_head">
+              <span><a href="#" class="close" title="关闭">×</a></span>
+            </div>
+            <form action="../account/remove" method="post">
+                <div class="delete_table_container">
+                    <div class="deleteid">
+                        <label for="name2">账号</label>
+                        <input class="layui-input" style="text-align: center;" type="text" id="name2" name="name" readonly="readonly" value="" />
+                    </div>
+                    <div>
+                        <input type="submit"  class="layui-btn layui-btn-danger" value="确认">
+                        <input type="button"  class="cancel layui-btn layui-btn-normal" value="取消">
+                    </div>
                 </div>
-                <form action="../account/remove" method="post">
-                  <div>确认删除以下用户</div>
-                  <table>
-                    <tr>
-                        <td class="td1"><label for="name2">账号</label></td>
-                        <td class="td2"><input type="text" id="name2" name="name" readonly="readonly" value=""></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit"  class="confirm" value="确认">
-                        <input type="button" class="cancel" value="取消"></td>
-                    </tr>
-                  </table>
-                </form>
-          </div>
+            </form>
+        </div>
           <div class="window" id="update">
+                <div class="detailtitle">信息修改</div>
                 <div class="show_head">
                   <span><a class="close" href="#" title="关闭">×</a></span>
                 </div>
-                <form action="../account/update" method="post">
-                  <div>信息修改</div>
-                  <table>
-                    <tr>
-                        <td class="td1"><label for="name3">账号</label></td>
-                        <td class="td2"><input type="text" id="name3" name="name" readonly="readonly" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="token3">令牌</label></td>
-                        <td class="td2"><input type="text" id="token3" name="token" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="authkey3">密钥</label></td>
-                        <td class="td2"><input type="text" id="authkey3" name="authkey" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="description2">描述</label></td>
-                        <td class="td2"><input type="text" id="description2" name="description" value=""/></td>
-                    </tr>
-                      <tr>
-                          <td class="td1"><label for="phyloc2">物理地址</label></td>
-                          <td class="td2"><input type="text" id="phyloc2" name="phyLoc" value=""/></td>
-                      </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit"  class="confirm" value="确认">
-                        <input type="button" class="cancel" value="取消"></td>
-                    </tr>
-                  </table>
+                <form class="layui-form" action="../account/update" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" for="name3">账号</label>
+                        <div class="layui-input-block">
+                          <input type="text" id="name3" value="" name="name" readonly="readonly" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" for="password3">密码</label>
+                        <div class="layui-input-block">
+                          <input type="text" id="password3" value="" name="password" readonly="readonly" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" for="token3">令牌</label>
+                        <div class="layui-input-block">
+                          <input type="text" id="token3" value="" name="token" placeholder="请输入令牌" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" for="authkey3">密钥</label>
+                        <div class="layui-input-block">
+                          <input type="text" id="authkey3" value="" name="authkey" placeholder="请输入密钥" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" for="description2">描述</label>
+                        <div class="layui-input-block">
+                          <input type="text" id="description2" name="description" value="" placeholder="请输入描述" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" for="phyloc2">物理地址</label>
+                        <div class="layui-input-block">
+                          <input type="text" id="phyloc2" name="phyLoc" value="" placeholder="请输入物理地址" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="text-align: center;margin-left: 40px">
+                        <input type="submit" class="layui-btn layui-btn-primary confirm" value="确认">
+                        <input type="button" class="cancel layui-btn layui-btn-normal" value="取消">
+                    </div>
                 </form>
           </div>
           <div class="window detail">
@@ -200,7 +176,7 @@
         </body>
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="../../js/datatables.min.js"></script>
-    <script type="text/javascript" src="../../js/form_no_jump.js"></script>
+        <script type="text/javascript" src="../../js/form_no_jump.js"></script>
         <script type="text/javascript">
             var selected = null;
             $("#user_table tbody").on("click", "tr", function () {
@@ -265,6 +241,9 @@
                             return '<span style="font-size:10px;text-align:center;display:inline-block;background-color:#6C7B8B;border-radius:5px;width:60px;color:white">Boss</span>';
                     }
                 }]
+            });
+            layui.use('form', function(){
+              var form = layui.form;
             });
         </script>
 </html>

@@ -1,7 +1,7 @@
 .serve{
-    border: 1px solid rgba(127, 229, 237, 0.58);
+    border: 1px solid #e2e2e2;
     border-radius: 2px;
-    background-color: rgba(127, 229, 237, 0.3);
+    background-color: #f2f2f2;
     box-shadow: 10px 10px 5px #888888;
     height:240px;
     margin:70px 90px;

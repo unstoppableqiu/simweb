@@ -9,52 +9,7 @@
         <link  rel="stylesheet" type="text/css" href="../../css/datatables.min.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style2.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminindex.css" />
-        <style>
-            .window{
-                width:600px;
-                height:400px;
-                background-color:white;
-                position:fixed;
-                top:50%;
-                left:50%;
-                margin-left:-300px;
-                margin-top:-200px;
-                z-index:100;
-                padding:20px;
-                border-radius:5px;
-                padding:0;
-                text-align:center;
-                display:none;
-            }
-            div#mask{
-                width:100%;
-                height:300%;
-                position:fixed;
-                background-color:#000;
-                top:0;
-                left:0;
-                z-index:2;
-                opacity:0.3;
-                filter: alpha(opacity=30);
-                display:none;
-            }
-            .window form{
-                margin-top:20%;
-                text-align:center;
-            }
-            .window table{
-                display:inline-block;
-            }
-            table tr{
-            	vertical-align:middle;
-            }
-             table tr td{
-            	vertical-align:middle;
-            }
-            .show_head{
-                text-align:right;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/resource.css" />
     </head>
     <body>
         <%@include file="head.jsp"%>
@@ -88,115 +43,114 @@
             </div>
         </div>
         <div class="window" id="add">
+            <div class="detailtitle">添加资源</div>
             <div class="show_head">
               <span><a href="#" class="close" title="关闭">×</a></span>
             </div>
-            <form action="../cresource/add" method="POST">
-                <div>添加资源</div>
-                <table>
-                    <tr>
-                        <td class="td1"><label for="name2">名称</label></td>
-                        <td class="td2"><input name="name" type="text" id="name" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="description2">描述</label></td>
-                        <td class="td2"><input name="description" type="text" id="description" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="phy_loc2">位置</label></td>
-                        <td class="td2"><input name="phyLoc" type="text" id="phy_loc" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="resource_type">资源类型</label></td>
-                        <td class="td2" id="resource_type">
-                            <input name="type" type="radio" value="1" checked="checked"/>超算
-                            <input name="type" type="radio" value="0" />GPU集群
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="ip2">IP地址</label></td>
-                        <td class="td2"><input name="ip" type="text" id="ip" value=""></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit"  class="confirm" value="确认">
-                            <input type="button" class="cancel" value="取消"></td>
-                    </tr>
-                </table>
+            <form class="layui-form" action="../cresource/add" method="POST">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="name2">名称</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="name" value="" name="name" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="description2">描述</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="description" value="" name="description" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="phy_loc2">位置</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="phy_loc" value="" name="phy_loc" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="resource_type" class="layui-form-label">资源类型</label>
+                    <div class="layui-input-block" id="resource_type">
+                        <input name="type" type="radio" value="1" checked="checked" title="超算"/>
+                        <input name="type" type="radio" value="0" title="GPU集群"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="ip2">IP地址</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="ip" value="" name="ip" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="text-align: center;margin-left: 40px">
+                    <input type="submit"  id="create_confirm" class="confirm layui-btn layui-btn-primary" value="确认">
+                    <input type="button"  class="cancel layui-btn layui-btn-normal" value="取消">
+                </div>
             </form>
         </div>
          <div class="window" id="update">
+            <div class="detailtitle">编辑资源</div>
             <div class="show_head">
               <span><a href="#" class="close" title="关闭">×</a></span>
             </div>
-            <form action="../cresource/update" method="POST">
-              <div>编辑资源</div>
-              <table>
-                    <tr>
-                        <td class="td1"><label for="name2">名称</label></td>
-                        <td class="td2"><input name="name" readonly="readonly" type="text" id="name2" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="description2">描述</label></td>
-                        <td class="td2"><input name="description" type="text" id="description2" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="td1"><label for="phy_loc2">位置</label></td>
-                        <td class="td2"><input name="phyLoc" type="text" id="phy_loc2" value=""></td>
-                    </tr>
-                  <tr>
-                      <td class="td1"><label for="resource_type2">资源类型</label></td>
-                      <td class="td2" id="resource_type2">
-                          <input name="type" type="radio" value="0" />GPU集群
-                          <input name="type" type="radio" value="1"/>超算
-                      </td>
-                  </tr>
-                    <tr>
-                        <td class="td1"><label for="ip2">IP地址</label></td>
-                        <td class="td2"><input name="ip" type="text" id="ip2" value=""></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit"  class="confirm" value="确认">
-                        <input type="button" class="cancel" value="取消"></td>
-                    </tr>
-                  </table>
+            <form class="layui-form" action="../cresource/update" method="POST">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="name2">名称</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="name2" value="" readonly="readonly" name="name" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="description2">描述</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="description2" value="" name="description" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="resource_type" class="layui-form-label">资源类型</label>
+                    <div class="layui-input-block" id="resource_type2">
+                        <input name="type" type="radio" value="1" checked="checked" title="超算"/>
+                        <input name="type" type="radio" value="0" title="GPU集群"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label" for="ip2">IP地址</label>
+                    <div class="layui-input-block">
+                      <input type="text" id="ip2" value="" name="ip" class="layui-input">
+                    </div>
+                </div>
+                
+                <div class="layui-form-item" style="text-align: center;margin-left: 40px">
+                    <input type="submit" class="confirm layui-btn layui-btn-primary" value="确认">
+                    <input type="button"  class="cancel layui-btn layui-btn-normal" value="取消">
+                </div>
             </form>
         </div>
-        <div id='detail' class="window">
-            <div class="show_head">
-              <span><a href="#" class="close" title="关闭">×</a></span>
-            </div>
-            <div>描述</div>
-            <textarea id="description_text" rows=15 style="width:70%;padding:0;">
-            </textarea></br>
-            <input id="description_btn"type="submit" value="提交">
-         </div>
-         <div class="window">
-            <div class="show_head">
-              <span><a href="#" class="close" title="关闭">×</a></span>
-            </div>
-            <div>位置</div>
-            <textarea id="phy_loc_text" rows=15 style="width:70%;padding:0;">
-            </textarea></br>
-            <input id="phy_loc_btn"type="submit" value="提交">
-         </div>
-         <div class="window" id="remove">
-                <div class="show_head">
-                  <span><a href="#" class="close" title="关闭">×</a></span>
+        <div id="detail" class="window">
+                <div style="margin-bottom: 20px;">
+                    <div class="detailtitle">描述</div>
+                    <div class="show_head">
+                      <span><a href="#" class="close" title="关闭">×</a></span>
+                    </div>
                 </div>
-                <form action="../cresource/remove" method="post">
-                  <div>确认删除以下资源？</div>
-                  <table>
-                    <tr>
-                        <td class="td1"><label for="name3">名称</label></td>
-                        <td class="td2"><input type="text" name="name" readonly="readonly" id="name3" value=""></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input  id="deleteResource" type="submit"  class="confirm" value="确认">
-                        <input type="button" class="cancel" value="取消"></td>
-                    </tr>
-                  </table>
-                </form>
-          </div>
+                <textarea id="description_text" rows=15 > </textarea><br/>
+                <!--<input id="description_btn"  type="submit" value="提交">-->
+        </div>
+        <div class="window" id="remove">
+            <div class="detailtitle">确认删除以下资源</div>
+            <div class="show_head">
+              <span><a href="#" class="close" title="关闭">×</a></span>
+            </div>
+            <form action="../cresource/remove" method="post">
+                <div class="delete_table_container">
+                    <div class="deleteid">
+                        <label for="name3">名称</label>
+                        <input class="layui-input" style="text-align: center;" type="text" id="name3" name="name" readonly="readonly" value="" />
+                    </div>
+                    <div>
+                        <input type="submit" id="deleteResource" class="layui-btn layui-btn-danger" value="确认">
+                        <input type="button" class="cancel layui-btn layui-btn-normal" value="取消">
+                    </div>
+                </div>
+            </form>
+        </div>
     </body>
     <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../../js/datatables.min.js"></script>
@@ -260,7 +214,7 @@
             ],
             "columnDefs": [
                 {
-                    "targets": [1, 2],
+                    "targets": 1,
                     "render": function (data) {
                         return '<span class="hash_string" style="font-size:10px;text-align:center;display:inline-block;background-color:#FFFFFF;border-radius:5px;width:60px;color:white">' +
                             '<img src="../../image/detail.png" alt="' + data + '"/></span>';
@@ -298,5 +252,11 @@
                     }
                 }
             ]});
+    </script>
+    <script type="text/javascript">
+        layui.use('form', function(){
+          var form = layui.form;
+          form.render();
+        });
     </script>
 </html>
